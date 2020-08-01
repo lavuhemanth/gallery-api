@@ -40,28 +40,21 @@ app.use(function (req, res, next) {
 
   next();
 });
-// app.set('view engine', 'pug');
-// app.set('views', './views');
 
 debug("Environment :: ", process.env.NODE_ENV);
 debug("Environment Name :: ", config.get("name"));
-// debug('Environment host :: ', config.get('mail.host'));
-// debug('Environment password :: ', process.env.app_password);
 
 app.use("/api/users", users);
 app.use("/api/login", auth);
-
-// app.get('/', (req, res) => {
-//     res.render('index', { title: "Movies", message: "Hi this Hemanth" });
-// });
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
   dbDebug(`server is running on port ${port}.....!`);
 });
 
+const mongoURL = process.env.MONGODB_URI || config.get("mongoURL");
 mongoose
-  .connect(config.get("mongoURL"), {
+  .connect(mongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
