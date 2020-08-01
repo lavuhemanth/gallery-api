@@ -1,0 +1,5 @@
+{
+  "name": "movies-app-",
+  "mongoURL": "mongodb://localhost/gallery",
+  "jwtPrivateKey": ""
+}

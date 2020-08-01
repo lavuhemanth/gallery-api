@@ -1,0 +1,9 @@
+{
+  "name": "Gallery-development",
+  "mail": {
+    "host": "gallery-mail-server-development",
+    "password": "app_password"
+  },
+  "mongoURL": "mongodb://localhost/gallery",
+  "jwtPrivateKey": ""
+}
