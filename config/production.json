@@ -4,6 +4,6 @@
     "host": "gallery-mail-server-production",
     "password": "app_password"
   },
-  "mongoURL": "https://www.mlab.com/databases/heroku_m8fx080r/collections/gallery_data",
+  "mongoURL": "mongodb://heroku_m8fx080r:t86demsn7l7ua992s5v4s2upk0@ds061076.mlab.com:61076/heroku_m8fx080r",
   "jwtPrivateKey": ""
 }
