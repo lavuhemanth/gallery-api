@@ -6,10 +6,11 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
-  if (error) res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ error: error.details[0].message });
 
   const isEmail_dup = await User.findOne({ email: req.body.email });
-  if (isEmail_dup) res.status(403).send("Email already exist");
+  if (isEmail_dup)
+    return res.status(403).send({ error: "Email already exist" });
 
   const salt = await bcrypt.genSalt(10);
   req.body.password = await bcrypt.hash(req.body.password, salt);
