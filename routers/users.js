@@ -23,12 +23,10 @@ router.post("/", async (req, res) => {
 
     const token = user.generateAuthToken();
 
-    res
-      .header("x-auth-token", token)
-      .send({
-        user: _.pick(result, ["_id", "firstName", "email"]),
-        token: token,
-      });
+    res.header("x-auth-token", token).send({
+      user: JSON.stringify(result),
+      token: token,
+    });
   } catch (ex) {
     throw ex;
   }
